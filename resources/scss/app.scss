@@ -1,16 +1,36 @@
 @import '~bootstrap/scss/bootstrap';
 
+body {
+  font-family: 'Prompt', sans-serif;
+}
+
 main {
   .col-3 {
     ul {
       li {
         background-color: #212529;
-        transition: 0.3s;
-        
+        transition: background-color 0.3s;
+
         &:hover {
           cursor: pointer;
           background-color: $primary;
         }
+      }
+    }
+  }
+  .col-9 {
+    .deletionModal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      
+      &.off {
+        display: none;
+      }
+
+      &.on {
+        display: block;
       }
     }
   }

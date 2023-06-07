@@ -9,10 +9,15 @@ use Illuminate\Support\Str;
 class Project extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'repositoryUrl', 'starting_date'];
+    protected $fillable = ['name', 'slug', 'repositoryUrl', 'starting_date'];
 
-    public static function createRepositoryUrl($projectName) {
-        $repositoryUrl = 'https://github.com/mattiavolpe/' . Str::slug($projectName, '-');
+    public static function generateSlug($projectName) {
+        $slug = Str::slug($projectName, '-');
+        return $slug;
+    }
+
+    public static function generateRepositoryUrl($slug) {
+        $repositoryUrl = 'https://github.com/edoardorizzo/' . $slug;
         return $repositoryUrl;
     }
 }
